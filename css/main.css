@@ -6,23 +6,23 @@
 
 @font-face {
   font-family: PFDinDisplayProBold;
-  src: url(/fonts/PFDinDisplayPro-Bold.ttf);
+  src: url(../fonts/PFDinDisplayPro-Bold.ttf);
 }
 
 @font-face {
   font-family: PFDinDisplayPro;
-  src: url(/fonts/PFDinDisplayPro-Italic.ttf);
+  src: url(../fonts/PFDinDisplayPro-Italic.ttf);
   font-style: italic;
 }
 
 @font-face {
   font-family: PFDinDisplayPro;
-  src: url(/fonts/PFDinDisplayPro-Thin.ttf);
+  src: url(../fonts/PFDinDisplayPro-Thin.ttf);
 }
 
 @font-face {
   font-family: WebSymbolsLigaRegular;
-  src: url(/fonts/websymbolsligaregular.ttf);
+  src: url(../fonts/websymbolsligaregular.ttf);
 }
 
 
@@ -32,8 +32,8 @@
 
 ******/
 
-html {
-  background: url('/img/bg_1920_1080.jpg') no-repeat;
+html, body {
+  background: url(../img/bg_1920_1080.jpg) no-repeat #a6c6e5;
   background-size: cover;
 }
 
@@ -72,7 +72,9 @@ p, .blue-rounded {
 }
 
 .idea {
-  display: inline;
+  display: inline-block;
+  margin-bottom: 50px;
+  margin: 0 auto;
 }
 
 .web-symbols {
@@ -81,7 +83,8 @@ p, .blue-rounded {
 }
 
 a:active, a:link, a:visited {
- color: white; 
+  text-decoration: none;
+  color: white; 
 }
 
 .counter {
@@ -110,19 +113,20 @@ a:active, a:link, a:visited {
 }
 
 .add-ideas {
-  width: 50%;
+  float: left;
   background-color: #c1dd08;
+  padding: 13px 50px;
 }
 
 .blue-rounded {
-  width: 65%;
   background-color: #bad0e5;
 }
 
 .show-ideas {
-  display: none;
-  width: 50%;
+  float: left;
+  padding: 13px 73px;
   background-color: #2cb2da;
+  margin-right: 5px; 
 }
 
 
