@@ -1,7 +1,7 @@
 <?php
 /* @var $this HomeController */
 ?>
-<header><h1>Город идей!</h1></header>
+<header><a href="<?=Yii::app()->request->baseUrl;?>"><h1>Город идей!</h1></a></header>
 
 <section class="content">
   <div class="lbracket"></div>
@@ -46,11 +46,11 @@
 
 <section class="social">
   <p class="web-symbols">
-    <a href="">ä</a>
-    <a href="">æ</a>
-    <a href="">å</a>
-    <a href="">è</a>
-    <a href="">ì</a>
-    <a href="">é</a>
+    <a href="<?=ShareLink::facebook();?>">ä</a>
+    <a href="<?=ShareLink::vkontakte();?>">æ</a>
+    <a href="<?=ShareLink::twitter();?>">å</a>
+    <a href="<?=ShareLink::googleplus();?>">è</a>
+    <a href="<?=ShareLink::livejournal();?>">ì</a>
+    <a href="<?=ShareLink::odnoklassniki();?>">é</a>
   </p>
 </section>
