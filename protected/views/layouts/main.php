@@ -28,9 +28,11 @@
 						type: 'POST',
 						url: '/home/email',
 						data: postData,
-					  encode: true
-					}).done(function(data) {
-						$( "#emailSuccess" ).click();
+					  encode: true,
+					  success: function() {
+					  	$( "a.close-reveal-modal" ).trigger('click');
+							$( "#linkSuccess" ).click();
+					  }
 					});
 
 					event.preventDefault();

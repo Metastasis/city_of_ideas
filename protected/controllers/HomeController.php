@@ -13,25 +13,27 @@ class HomeController extends Controller
 		$this->render('index');
 	}
 
-	public function actionEmail() {
-	  if(Yii::app()->request->isAjaxRequest) {
-	      $email = filter_input(INPUT_POST, 'email', FILTER_VALIDATE_EMAIL);
-	      if($email) {
-	          $emailFile = fopen('email.txt', 'a');
-	          if(fwrite($emailFile, $email.PHP_EOL)) {
-	              echo $jsonAnswer = CJSON::encode(array(
-	                  'error' => 0
-	              ));
-	              Yii::app()->end();
-	          }
-	          fclose($emailFile);
-	      }
-	  }
-	  
-	  echo $jsonAnswer = CJSON::encode(array(
-	     'error' => 1
-	  ));
-	  Yii::app()->end();
+	public function actionEmail()
+	{
+	  if(!Yii::app()->request->isAjaxRequest)
+	  {
+		  echo $jsonAnswer = CJSON::encode(array('error' => 1));
+		  Yii::app()->end();
+		}
+	  	
+    $email = filter_input(INPUT_POST, 'email', FILTER_VALIDATE_EMAIL);
+
+    if($email)
+    {
+      $emailFile = fopen('email.txt', 'a');
+
+      if(fwrite($emailFile, $email.PHP_EOL))
+      {
+        echo $jsonAnswer = CJSON::encode(array('error' => 0));
+        Yii::app()->end();
+      }
+      fclose($emailFile);
+    }
   }
 
 	/**

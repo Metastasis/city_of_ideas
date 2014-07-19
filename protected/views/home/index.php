@@ -23,8 +23,8 @@
 </section>
 
 <section class="idea">
-  <a href="#" data-reveal-id="myModal"><div class="show-ideas" id="subscribe">Оставить эл. почту</div></a>
-  <div id="myModal" class="reveal-modal" data-reveal>
+  <a href="#" data-reveal-id="subscribeEmail"><div class="show-ideas" id="subscribe">Оставить эл. почту</div></a>
+  <div id="subscribeEmail" class="reveal-modal" data-reveal>
     <h2>Узнайте первым об открытии</h2>
     <hr>
     <form name="subscribe_form" id="subscribe_form"  method="post">
@@ -35,7 +35,7 @@
     <a class="close-reveal-modal">&#215;</a>
   </div>
 
-  <a href="#" data-reveal-id="emailSuccess" style="display:none;"></a>
+  <a id="linkSuccess" href="#" data-reveal-id="emailSuccess" style="display:none;"></a>
   <div id="emailSuccess" class="reveal-modal" data-reveal>
     <h2>Спасибо! Мы свяжемся как все будет готово.</h2>
     <a class="close-reveal-modal">&#215;</a>

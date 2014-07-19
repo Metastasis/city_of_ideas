@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Хост: localhost
--- Время создания: Июл 10 2014 г., 09:28
+-- Время создания: Июл 18 2014 г., 05:10
 -- Версия сервера: 5.5.24-log
 -- Версия PHP: 5.4.3
 
@@ -88,13 +88,12 @@ CREATE TABLE IF NOT EXISTS `discussion` (
 CREATE TABLE IF NOT EXISTS `idea` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `id_user` int(10) unsigned NOT NULL,
-  `id_category` int(10) unsigned NOT NULL,
+  `name` varchar(255) NOT NULL,
   `description` text NOT NULL,
   `total_price` decimal(5,2) NOT NULL,
   `coords` point NOT NULL,
   PRIMARY KEY (`id`),
-  KEY `id_user` (`id_user`),
-  KEY `id_category` (`id_category`)
+  KEY `id_user` (`id_user`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -141,6 +140,34 @@ CREATE TABLE IF NOT EXISTS `solution_idea` (
 -- --------------------------------------------------------
 
 --
+-- Структура таблицы `tag`
+--
+
+CREATE TABLE IF NOT EXISTS `tag` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `name` (`name`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
+-- Структура таблицы `tag_idea`
+--
+
+CREATE TABLE IF NOT EXISTS `tag_idea` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `id_idea` int(10) unsigned NOT NULL,
+  `id_tag` int(10) unsigned NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `id_idea` (`id_idea`),
+  KEY `id_tag` (`id_tag`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
 -- Структура таблицы `user`
 --
 
@@ -169,22 +196,21 @@ ALTER TABLE `ban`
 -- Ограничения внешнего ключа таблицы `category_idea`
 --
 ALTER TABLE `category_idea`
-  ADD CONSTRAINT `category_idea_ibfk_2` FOREIGN KEY (`id_idea`) REFERENCES `idea` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  ADD CONSTRAINT `category_idea_ibfk_1` FOREIGN KEY (`id_category`) REFERENCES `category` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+  ADD CONSTRAINT `category_idea_ibfk_1` FOREIGN KEY (`id_category`) REFERENCES `category` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  ADD CONSTRAINT `category_idea_ibfk_2` FOREIGN KEY (`id_idea`) REFERENCES `idea` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
 -- Ограничения внешнего ключа таблицы `discussion`
 --
 ALTER TABLE `discussion`
-  ADD CONSTRAINT `discussion_ibfk_2` FOREIGN KEY (`id_user`) REFERENCES `user` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  ADD CONSTRAINT `discussion_ibfk_1` FOREIGN KEY (`id_idea`) REFERENCES `idea` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+  ADD CONSTRAINT `discussion_ibfk_1` FOREIGN KEY (`id_idea`) REFERENCES `idea` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  ADD CONSTRAINT `discussion_ibfk_2` FOREIGN KEY (`id_user`) REFERENCES `user` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
 -- Ограничения внешнего ключа таблицы `idea`
 --
 ALTER TABLE `idea`
-  ADD CONSTRAINT `idea_ibfk_2` FOREIGN KEY (`id_user`) REFERENCES `user` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  ADD CONSTRAINT `idea_ibfk_1` FOREIGN KEY (`id_category`) REFERENCES `category` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+  ADD CONSTRAINT `idea_ibfk_2` FOREIGN KEY (`id_user`) REFERENCES `user` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
 -- Ограничения внешнего ключа таблицы `photo`
@@ -196,8 +222,15 @@ ALTER TABLE `photo`
 -- Ограничения внешнего ключа таблицы `solution_idea`
 --
 ALTER TABLE `solution_idea`
-  ADD CONSTRAINT `solution_idea_ibfk_2` FOREIGN KEY (`id_idea`) REFERENCES `idea` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  ADD CONSTRAINT `solution_idea_ibfk_1` FOREIGN KEY (`id_solution`) REFERENCES `solution` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+  ADD CONSTRAINT `solution_idea_ibfk_1` FOREIGN KEY (`id_solution`) REFERENCES `solution` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  ADD CONSTRAINT `solution_idea_ibfk_2` FOREIGN KEY (`id_idea`) REFERENCES `idea` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+
+--
+-- Ограничения внешнего ключа таблицы `tag_idea`
+--
+ALTER TABLE `tag_idea`
+  ADD CONSTRAINT `tag_idea_ibfk_1` FOREIGN KEY (`id_idea`) REFERENCES `idea` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  ADD CONSTRAINT `tag_idea_ibfk_2` FOREIGN KEY (`id_tag`) REFERENCES `tag` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
