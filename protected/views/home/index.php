@@ -18,9 +18,9 @@
   </div>
 </section>
 
-<section class="counter">
+<!-- <section class="counter">
   <h2>В нашей копилке уже <span class="quantity">138 идей</span></h2>
-</section>
+</section> -->
 
 <section class="idea">
   <a href="#" data-reveal-id="subscribeEmail"><div class="show-ideas" id="subscribe">Оставить эл. почту</div></a>
