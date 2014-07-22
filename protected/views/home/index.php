@@ -41,7 +41,11 @@
     <a class="close-reveal-modal">&#215;</a>
   </div>
 
-  <div class="add-ideas">Предложить свою идею</div>
+	<a href="https://docs.google.com/forms/d/1ngUGBBUjFnQSSOoOgR7yoyC8Jt5a4MThZipNNXCp7xg/viewform">
+	  <div class="add-ideas">
+	  	Предложить свою идею
+		</div>
+	</a>
 </section>
 
 <section class="social">
