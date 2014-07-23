@@ -44,17 +44,17 @@
 	<a href="https://docs.google.com/forms/d/1ngUGBBUjFnQSSOoOgR7yoyC8Jt5a4MThZipNNXCp7xg/viewform">
 	  <div class="add-ideas">
 	  	Предложить свою идею
-		</div>
+      </div>
 	</a>
 </section>
 
 <section class="social">
   <p class="web-symbols">
-    <a href="<?=ShareLink::facebook();?>">ä</a>
-    <a href="<?=ShareLink::vkontakte();?>">æ</a>
-    <a href="<?=ShareLink::twitter();?>">å</a>
-    <a href="<?=ShareLink::googleplus();?>">è</a>
-    <a href="<?=ShareLink::livejournal();?>">ì</a>
-    <a href="<?=ShareLink::odnoklassniki();?>">é</a>
+    <a href="<?=ShareLink::facebook();?>" target="_blank">ä</a>
+    <a href="<?=ShareLink::vkontakte();?>" target="_blank">æ</a>
+    <a href="<?=ShareLink::twitter();?>" target="_blank">å</a>
+    <a href="<?=ShareLink::googleplus();?>" target="_blank">è</a>
+    <a href="<?=ShareLink::livejournal();?>" target="_blank">ì</a>
+    <a href="<?=ShareLink::odnoklassniki();?>" target="_blank">é</a>
   </p>
 </section>
