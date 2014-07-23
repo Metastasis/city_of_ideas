@@ -1,0 +1,8 @@
+2014/07/23 03:32:52 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "favicon.ico".' in C:\wamp\www\lib\yii-1.1.15.022a51\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\lib\yii-1.1.15.022a51\framework\web\CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 C:\wamp\www\lib\yii-1.1.15.022a51\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\wamp\www\city_of_ideas\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---

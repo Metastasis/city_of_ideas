@@ -1,7 +1,7 @@
 <?php
 /* @var $this HomeController */
 ?>
-<header><a href="<?=Yii::app()->request->baseUrl;?>"><h1>Город идей!</h1></a></header>
+<header><a href="<?=Yii::app()->createUrl('/home/index');?>"><h1>Город идей!</h1></a></header>
 
 <section class="content">
   <div class="lbracket"></div>

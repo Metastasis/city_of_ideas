@@ -5,7 +5,6 @@
   Yii::app()->clientScript->registerCssFile(Yii::app()->request->baseUrl . '/css/reveal.css');
   Yii::app()->clientScript->registerCssFile('//code.jquery.com/ui/1.11.0/themes/smoothness/jquery-ui.css');
   Yii::app()->clientScript->registerCoreScript('jquery');
-  Yii::app()->clientScript->registerCoreScript('jquery.ui');
   Yii::app()->clientScript->registerScriptFile(Yii::app()->request->baseUrl . '/js/jquery.reveal.js');
 ?>
 <!DOCTYPE html>
@@ -23,10 +22,9 @@
 				$( "#subscribe_form" ).submit(function(event) {
 
 					var postData = $(this).serializeArray();
-
 					$.ajax({
 						type: 'POST',
-						url: '/home/email',
+						url: window.location + '/home/email',
 						data: postData,
 					  encode: true,
 					  success: function() {
